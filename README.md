@@ -24,6 +24,8 @@ Back: Authentication (authenticate user, create user, will access MySQL DB), Rec
 
 ## Research
 
+Learn Spring Data for MongoDB. (in progress)
+
 I need to decide on a specific charting library to use. It will need to be able to handle a significant number of data points. 
 
 Implement some sort of testing on the front-end. 
