@@ -8,7 +8,7 @@ Migrate my old currency conversion tool into a web-based tool.
 
 Front: React, Material UI, Axios, SciChart(?), amCharts5(?),  
 
-Back: Spring Boot, Spring Actuator, Spring Security, Spring Cloud, Resilience4J, Devtools, OpenFeign, SLF4J, JUnit, Mockito, Kafka(?), Docker, Kubernetes, MongoDB, MySQL, 
+Back: Spring Boot, Spring Actuator, Spring Security, Spring Cloud, Resilience4J, Devtools, OpenFeign, SLF4J, JUnit, Mockito, Kafka(?), Docker, Kubernetes, MongoDB, ~~MySQL~~(I want thinking about using MySQL for user credentials, like how Keycloak uses Postgres, but why not not just use Mongo?), 
 
 ## Deployment Environments - Complete  
 
