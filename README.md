@@ -8,11 +8,13 @@ Migrate my old currency conversion tool into a web-based tool.
 
 Front: React, Material UI, Axios, SciChart(?), amCharts5(?),  
 
-Back: Spring Boot, Spring Actuator, Spring Security, Spring Cloud, Resilience4J, Devtools, OpenFeign, SLF4J, JUnit, Mockito, Kafka(?), Docker, Kubernetes, MongoDB, ~~MySQL~~(I want thinking about using MySQL for user credentials, like how Keycloak uses Postgres, but why not not just use Mongo?), 
+Back: Spring Boot, Spring Actuator, Spring Security, Spring Cloud, Resilience4J, Devtools, OpenFeign, SLF4J, JUnit, Mockito, Kafka(?), Docker, Kubernetes, database? 
+
+MongoDB? - I've been learning a lot about MongoDB. I wanted to use it for retrieving large amounts of currency data, particularly data that will be used to populate graphs on the front-end. It would probably work great for that. However, I think it will cause problems in terms of the other ways that data can be used. A possible solution that includes the use of Mongodb is that I could use Postgres or MySQL to store all my data and then generate the graphh data and store it into MongoDB. I really want to use MongoDB (as a personal challenge), but I want to use it in a way that makes sense and doesn't cause problems. 
 
 ## Deployment Environments - Complete  
 
-Front: Firebase 
+Front: Firebase
 
 Back: Google Kubernetes Engine 
 
@@ -20,7 +22,7 @@ Back: Google Kubernetes Engine
 
 Front: Login, Account Recovery, Charting(how many charts?), Conversions,  
 
-Back: Authentication (authenticate user, create user, will access MySQL DB), Recover User Account (handle account recovery, will need to connect to MySQL DB) Chart Data (retrieve data for charts), WebScraper (gather currency related data), Database Generators (insert currency related data into MongoDB), Convert Data (conduct currency conversions, will need to access MongoDB for rates), MongoDB (will hold currency related data), MySQL DB (will hold user data),  
+Back: Authentication (authenticate user, create user, will access MySQL DB), Recover User Account (handle account recovery, will need to connect to MySQL DB) Chart Data (retrieve data for charts), WebScraper (gather currency related data), Database Generators (insert currency related data into MongoDB), Convert Data (conduct currency conversions, will need to access MongoDB for rates), MongoDB (hold and retrieve currency data), MySQL DB (will hold user data),  
 
 ## Research
 
