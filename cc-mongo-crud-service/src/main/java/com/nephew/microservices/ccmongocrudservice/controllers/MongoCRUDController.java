@@ -14,9 +14,9 @@ import com.nephew.microservices.ccmongocrudservice.documents.CurrencyConversion;
 import com.nephew.microservices.ccmongocrudservice.services.CurrencyService;
 
 @RestController
-public class CurrencyExchangeController {
+public class MongoCRUDController {
 
-	private Logger logger = LoggerFactory.getLogger(CurrencyExchangeController.class);
+	private Logger logger = LoggerFactory.getLogger(MongoCRUDController.class);
 
 	@Autowired
 	private CurrencyService currencyService;
