@@ -50,18 +50,16 @@ Produced dataset:
 ```
 {
   "id": "string",
-  "name": "string",
+  "fromName": "string",
+  "toName": "string",
   "calendricalPeriod": "string",
+  "description": "string",
   "environment": "string",
   "currency": [
     {
-      "id": "string",
-      "fromName": "string",
-      "toName": "string",
       "fromRate": 0,
       "toRate": 0,
-      "date": "2023-08-11",
-      "description": "string"
+      "date": "2023-08-11"
     }
   ]
 }
