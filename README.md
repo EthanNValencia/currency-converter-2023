@@ -2,7 +2,7 @@
 
 ## Goal  
 
-Migrate my old currency conversion tool into a web-based tool. 
+Migrate my old currency conversion tool (https://github.com/EthanNValencia/Currency_Converter) into a web-based tool. 
 
 ## Tech Stack - Incomplete  
 
@@ -42,7 +42,7 @@ I want to see if I can use Kafka to setup a data stream that will show users who
 
 Database: I just want to use MongoDB to retrieve datasets. Based on my limited experience with MongoDB, if I have to make complex commands -- it'll turn MongoDB into a OmgnoDb pretty quick. I just want to use MongoDB to pull that data and throw it at the front-end as fast as possible. So my idea is create a webscraper to get the data and store it in MySQL, to leverage the power of MySQL queries as much as possible, and to generate data that will be stored in Mongo. 
 
-Currently pathway(s): 
+Current pathway(s): 
 
 http://localhost:8100/cc-mongo-entry-feign/from/usd/to/eur/period/days <-> http://localhost:8000/cc-mongo-crud/from/usd/to/eur/period/days  <-> MongoDB 
 
