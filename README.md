@@ -10,7 +10,7 @@ Front: React, Material UI, Axios, SciChart(?), amCharts5(?),
 
 Back: Spring Boot, Spring Actuator, Spring Security, Spring Cloud, Resilience4J, Devtools, OpenFeign, SLF4J, JUnit, Mockito, Kafka(?), Docker, Kubernetes, database? 
 
-MongoDB? - I've been learning a lot about MongoDB. I wanted to use it for retrieving large amounts of currency data, particularly data that will be used to populate graphs on the front-end. It would probably work great for that. However, I think it will cause problems in terms of the other ways that data can be used. A possible solution that includes the use of Mongodb is that I could use Postgres or MySQL to store all my data and then generate the graphh data and store it into MongoDB. I really want to use MongoDB (as a personal challenge), but I want to use it in a way that makes sense and doesn't cause problems. 
+MongoDB? - I've been learning a lot about MongoDB. I wanted to use it for retrieving large amounts of currency data, particularly data that will be used to populate graphs on the front-end. It would probably work great for that. However, I think it will cause problems in terms of the other ways that data can be used. A possible solution that includes the use of Mongodb is that I could use Postgres or MySQL to store all my data and then generate the graph data and store it into MongoDB. I really want to use MongoDB (as a personal challenge), but I want to use it in a way that makes sense and doesn't cause problems. 
 
 ## Deployment Environments - Complete  
 
