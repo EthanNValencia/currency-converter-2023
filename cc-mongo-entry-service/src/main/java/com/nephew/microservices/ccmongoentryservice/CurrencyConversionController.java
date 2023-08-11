@@ -65,12 +65,12 @@ public class CurrencyConversionController {
 	 * 
 	 */
 	
-	@GetMapping("/cc-mongo-entry-feign/from/{from}/to/{to}")
-	public CurrencyConversion retrievChartDataFeign(@PathVariable String from, @PathVariable String to) {
-		logger.info("retrievChartDataFeign called with {} to {}", from, to);
-		CurrencyConversion currencyConversion = proxy.retrieveChartData(from, to);
+	@GetMapping("/cc-mongo-entry-feign/from/{from}/to/{to}/period/{period}")
+	public CurrencyConversion retrievChartDataFeign(@PathVariable String from, @PathVariable String to, @PathVariable String period) {
+		logger.info("retrievChartDataFeign called with {} to {} period {}", from, to, period);
+		CurrencyConversion currencyConversion = proxy.retrieveChartData(from, to, period);
 		currencyConversion.appendEnvironment(currencyConversion.getEnvironment() + " " + "feign");
-		logger.info("retrievChartDataFeign called with {} to {} request fulfilled.", from, to);
+		logger.info("retrievChartDataFeign called with {} to {} period {} request fulfilled.", from, to, period);
 		return currencyConversion;
 	}
 

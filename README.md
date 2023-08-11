@@ -36,7 +36,6 @@ I want to see if I can use Kafka to setup a data stream that will show users who
 
 # TODO: Determine entity structures, determine how componenets will communicate with each other, get a rough idea of what http requests will be needed, ?
 
-
 ## Project Progress Report (7-8-2023 to 11-8-2023)
 
 8100(cc-mongo-entry) serves as an entry point for 8000(cc-mongo-crud), 8001(cc-mongo-crud), 8002(cc-mongo-crud). Kubernetes will faciliate load balancing. I am planning on creating a webscraper to get historical currency exchange rates. That data will be stored in a MySQL database (review previous project). I want to create a charting data generator (review previous project). The generator will store the charting data in MongoDB through the cc-mongo-crud-service. 
@@ -45,14 +44,14 @@ Database: I just want to use MongoDB to retrieve datasets. Based on my limited e
 
 Currently pathway(s): 
 
-http://localhost:8100/cc-mongo-entry-feign/from/usd/to/eur <-> http://localhost:8000/cc-mongo-crud/from/usd/to/eur <-> MongoDB 
+http://localhost:8100/cc-mongo-entry-feign/from/usd/to/eur/period/days <-> http://localhost:8000/cc-mongo-crud/from/usd/to/eur/period/days  <-> MongoDB 
 
 Produced dataset: 
 ```
 {
   "id": "string",
   "name": "string",
-  <--- Add something for establishing ranges, currently it only works for daily rates -- what about weeks or months? --->
+  "calendricalPeriod": "string",
   "environment": "string",
   "currency": [
     {

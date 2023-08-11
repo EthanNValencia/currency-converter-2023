@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.nephew.microservices.ccmongocrudservice.documents.Currency;
+import com.nephew.microservices.ccmongocrudservice.documents.CurrencyPeriod;
 import com.nephew.microservices.ccmongocrudservice.documents.CurrencyConversion;
 import com.nephew.microservices.ccmongocrudservice.repositories.CurrencyRepository;
 
@@ -18,10 +18,8 @@ public class CurrencyService {
 		this.currencyRepository = currencyRepository;
 	}
 
-	public List<CurrencyConversion> searchByName(String from, String to) {
-		String searchString = from + "to" + to;
-		System.out.println("Searching for " + searchString);
-		return currencyRepository.findAllByNameIgnoreCase(searchString);
+	public List<CurrencyConversion> searchByNameAndPeriod(String toName, String fromName, String period) {
+		return currencyRepository.findByToNameIgnoreCaseAndFromNameIgnoreCaseAndCalendricalPeriodIgnoreCase(toName, fromName, period);
 	}
 
 }

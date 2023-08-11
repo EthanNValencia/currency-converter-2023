@@ -24,10 +24,10 @@ public class CurrencyExchangeController {
 	@Autowired
 	private Environment environment;
 
-	@GetMapping("/cc-mongo-crud/from/{from}/to/{to}")
-	public CurrencyConversion retrieveChartData(@PathVariable String from, @PathVariable String to) {
+	@GetMapping("/cc-mongo-crud/from/{from}/to/{to}/period/{period}")
+	public CurrencyConversion retrieveChartData(@PathVariable String from, @PathVariable String to, @PathVariable String period) {
 		logger.info("retrieveChartData called with {} to {}", from, to);
-		List<CurrencyConversion> currencyExchange = currencyService.searchByName(from, to);
+		List<CurrencyConversion> currencyExchange = currencyService.searchByNameAndPeriod(to, from, period);
 		if (currencyExchange.isEmpty()) {
 			throw new RuntimeException("Unable to Find data for " + from + " to " + to);
 		}

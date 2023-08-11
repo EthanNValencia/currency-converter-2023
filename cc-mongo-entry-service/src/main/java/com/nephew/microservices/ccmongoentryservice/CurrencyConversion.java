@@ -5,26 +5,24 @@ import java.util.List;
 public class CurrencyConversion {
 
 	private String id;
-	private String name; // ex USDtoEUR
+	private String fromName;
+	private String toName;
+	private String calendricalPeriod;
+	private String description;
 	private String environment;
-	private List<Currency> currency;
+	// @DBRef
+	private List<CurrencyPeriod> currency;
 
-	public CurrencyConversion(String name, List<Currency> currency) {
+	public CurrencyConversion(String fromName, String toName, String calendricalPeriod, List<CurrencyPeriod> currency) {
 		super();
-		this.name = name;
+		this.fromName = fromName;
+		this.toName = toName;
+		this.calendricalPeriod = calendricalPeriod;
 		this.currency = currency;
 	}
 
 	public CurrencyConversion() {
 		super();
-	}
-	
-	public String getEnvironment() {
-		return environment;
-	}
-
-	public void setEnvironment(String environment) {
-		this.environment = environment;
 	}
 
 	public String getId() {
@@ -35,24 +33,60 @@ public class CurrencyConversion {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getFromName() {
+		return fromName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFromName(String fromName) {
+		this.fromName = fromName;
 	}
 
-	public List<Currency> getCurrency() {
+	public String getToName() {
+		return toName;
+	}
+
+	public void setToName(String toName) {
+		this.toName = toName;
+	}
+
+	public String getCalendricalPeriod() {
+		return calendricalPeriod;
+	}
+
+	public void setCalendricalPeriod(String calendricalPeriod) {
+		this.calendricalPeriod = calendricalPeriod;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getEnvironment() {
+		return environment;
+	}
+
+	public void setEnvironment(String environment) {
+		this.environment = environment;
+	}
+
+	public List<CurrencyPeriod> getCurrency() {
 		return currency;
 	}
 
-	public void setCurrency(List<Currency> currency) {
+	public void setCurrency(List<CurrencyPeriod> currency) {
 		this.currency = currency;
 	}
 
-	public void appendEnvironment(String environment) {
-		this.environment = this.environment + " -> " + environment;
+	public void setDescription() {
+		this.description = "Exchange from " + this.fromName + " to " + this.toName;
+	}
+
+	public void appendEnvironment(String string) {
+		this.environment = this.environment + string;
 	}
 
 }

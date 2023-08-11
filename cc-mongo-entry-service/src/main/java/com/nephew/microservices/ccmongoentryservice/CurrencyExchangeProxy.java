@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "currency-exchange", url = "${CURRENCY_EXCHANGE_URI:http://localhost}:8000")
 public interface CurrencyExchangeProxy {
 
-	@GetMapping("/cc-mongo-crud/from/{from}/to/{to}")
-	public CurrencyConversion retrieveChartData(@PathVariable String from, @PathVariable String to);
+	@GetMapping("/cc-mongo-crud/from/{from}/to/{to}/period/{period}")
+	public CurrencyConversion retrieveChartData(@PathVariable String from, @PathVariable String to, @PathVariable String period);
 
 }
