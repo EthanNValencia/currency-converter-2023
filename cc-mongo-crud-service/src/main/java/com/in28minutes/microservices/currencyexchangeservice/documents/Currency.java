@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Currency {
 
 	@Id
-	private String id;
+	private String id; // might not use this
 	private String fromName;
 	private String toName;
 	private Double fromRate;

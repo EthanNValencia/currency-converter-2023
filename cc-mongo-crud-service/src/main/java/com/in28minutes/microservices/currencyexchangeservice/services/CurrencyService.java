@@ -18,8 +18,8 @@ public class CurrencyService {
 		this.currencyRepository = currencyRepository;
 	}
 
-	public List<CurrencyConversion> searchByName(String to, String from) {
-		String searchString = to + "to" + from;
+	public List<CurrencyConversion> searchByName(String from, String to) {
+		String searchString = from + "to" + to;
 		System.out.println("Searching for " + searchString);
 		return currencyRepository.findAllByNameIgnoreCase(searchString);
 	}
