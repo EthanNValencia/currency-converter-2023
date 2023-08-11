@@ -12,6 +12,7 @@ public class CurrencyConversion {
 	@Id
 	private String id;
 	private String name; // ex USDtoEUR
+	private String environment;
 	// @DBRef
 	private List<Currency> currency;
 
@@ -23,6 +24,14 @@ public class CurrencyConversion {
 
 	public CurrencyConversion() {
 		super();
+	}
+	
+	public String getEnvironment() {
+		return environment;
+	}
+
+	public void setEnvironment(String environment) {
+		this.environment = environment;
 	}
 
 	public String getId() {

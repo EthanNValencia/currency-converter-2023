@@ -9,6 +9,6 @@ import com.in28minutes.microservices.currencyexchangeservice.documents.CurrencyC
 
 public interface CurrencyRepository extends MongoRepository<CurrencyConversion, String> {
 
-	List<Currency> findAllByNameIgnoreCase(String name);
+	List<CurrencyConversion> findAllByNameIgnoreCase(String name);
 
 }

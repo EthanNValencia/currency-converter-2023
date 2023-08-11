@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.in28minutes.microservices.currencyexchangeservice.documents.Currency;
+import com.in28minutes.microservices.currencyexchangeservice.documents.CurrencyConversion;
 import com.in28minutes.microservices.currencyexchangeservice.repositories.CurrencyRepository;
 
 @Service
@@ -17,8 +18,10 @@ public class CurrencyService {
 		this.currencyRepository = currencyRepository;
 	}
 
-	public List<Currency> searchByName(String to, String from) {
-		return currencyRepository.findAllByNameIgnoreCase(from.concat("to" + to));
+	public List<CurrencyConversion> searchByName(String to, String from) {
+		String searchString = to + "to" + from;
+		System.out.println("Searching for " + searchString);
+		return currencyRepository.findAllByNameIgnoreCase(searchString);
 	}
 
 }

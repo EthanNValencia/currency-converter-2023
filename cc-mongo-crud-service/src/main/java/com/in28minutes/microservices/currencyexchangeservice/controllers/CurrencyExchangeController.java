@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.in28minutes.microservices.currencyexchangeservice.documents.Currency;
+import com.in28minutes.microservices.currencyexchangeservice.documents.CurrencyConversion;
 import com.in28minutes.microservices.currencyexchangeservice.services.CurrencyService;
 
 @RestController
@@ -25,13 +25,13 @@ public class CurrencyExchangeController {
 	private Environment environment;
 
 	@GetMapping("/currency-crud-mongo/from/{from}/to/{to}")
-	public Currency retrieveExchangeValue(@PathVariable String from, @PathVariable String to) {
+	public CurrencyConversion retrieveExchangeValue(@PathVariable String from, @PathVariable String to) {
 
 		logger.info("retrieveExchangeValue called with {} to {}", from, to);
 
-		List<Currency> currencyExchange = currencyService.searchByName(from, to);
+		List<CurrencyConversion> currencyExchange = currencyService.searchByName(from, to);
 
-		if (currencyExchange == null) {
+		if (currencyExchange.isEmpty()) {
 			throw new RuntimeException("Unable to Find data for " + from + " to " + to);
 		}
 
@@ -41,7 +41,7 @@ public class CurrencyExchangeController {
 		String host = environment.getProperty("HOSTNAME");
 		String version = "v1";
 		// currencyExchange.setEnvironment(port + " " + version + " " + host);
-
+		currencyExchange.get(0).setEnvironment(port + " " + version + " " + host);
 		return currencyExchange.get(0);
 
 	}

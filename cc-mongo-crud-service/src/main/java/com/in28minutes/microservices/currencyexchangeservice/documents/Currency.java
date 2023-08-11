@@ -12,14 +12,13 @@ public class Currency {
 	private String id;
 	private String fromName;
 	private String toName;
-	private Integer fromRate;
-	private Integer toRate;
+	private Double fromRate;
+	private Double toRate;
 	private LocalDate date;
 	private String description;
-	private Integer exchangeRate;
 
-	public Currency(String fromName, String toName, Integer fromRate, Integer toRate, LocalDate date,
-			String description, Integer exchangeRate) {
+	public Currency(String fromName, String toName, Double fromRate, Double toRate, LocalDate date,
+			String description) {
 		super();
 		this.fromName = fromName;
 		this.toName = toName;
@@ -27,7 +26,6 @@ public class Currency {
 		this.toRate = toRate;
 		this.date = date;
 		this.description = description;
-		this.exchangeRate = exchangeRate;
 	}
 
 	public Currency() {
@@ -58,19 +56,19 @@ public class Currency {
 		this.toName = toName;
 	}
 
-	public Integer getFromRate() {
+	public Double getFromRate() {
 		return fromRate;
 	}
 
-	public void setFromRate(Integer fromRate) {
+	public void setFromRate(Double fromRate) {
 		this.fromRate = fromRate;
 	}
 
-	public Integer getToRate() {
+	public Double getToRate() {
 		return toRate;
 	}
 
-	public void setToRate(Integer toRate) {
+	public void setToRate(Double toRate) {
 		this.toRate = toRate;
 	}
 
@@ -86,16 +84,12 @@ public class Currency {
 		return description;
 	}
 
+	public void setDescription() {
+		this.description = "Exchange from USD " + this.fromName + " to " + this.toName;
+	}
+
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public Integer getExchangeRate() {
-		return exchangeRate;
-	}
-
-	public void setExchangeRate(Integer exchangeRate) {
-		this.exchangeRate = exchangeRate;
 	}
 
 }
