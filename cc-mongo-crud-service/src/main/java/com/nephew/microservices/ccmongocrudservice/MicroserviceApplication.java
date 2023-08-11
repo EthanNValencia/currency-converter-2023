@@ -1,4 +1,4 @@
-package com.in28minutes.microservices.currencyexchangeservice;
+package com.nephew.microservices.ccmongocrudservice;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -10,9 +10,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.in28minutes.microservices.currencyexchangeservice.documents.Currency;
-import com.in28minutes.microservices.currencyexchangeservice.documents.CurrencyConversion;
-import com.in28minutes.microservices.currencyexchangeservice.repositories.CurrencyRepository;
+import com.nephew.microservices.ccmongocrudservice.documents.Currency;
+import com.nephew.microservices.ccmongocrudservice.documents.CurrencyConversion;
+import com.nephew.microservices.ccmongocrudservice.repositories.CurrencyRepository;
 
 @SpringBootApplication
 public class MicroserviceApplication {

@@ -1,4 +1,4 @@
-package com.in28minutes.microservices.currencyexchangeservice.controllers;
+package com.nephew.microservices.ccmongocrudservice.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,11 +1,11 @@
-package com.in28minutes.microservices.currencyexchangeservice.repositories;
+package com.nephew.microservices.ccmongocrudservice.repositories;
 
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.in28minutes.microservices.currencyexchangeservice.documents.Currency;
-import com.in28minutes.microservices.currencyexchangeservice.documents.CurrencyConversion;
+import com.nephew.microservices.ccmongocrudservice.documents.Currency;
+import com.nephew.microservices.ccmongocrudservice.documents.CurrencyConversion;
 
 public interface CurrencyRepository extends MongoRepository<CurrencyConversion, String> {
 

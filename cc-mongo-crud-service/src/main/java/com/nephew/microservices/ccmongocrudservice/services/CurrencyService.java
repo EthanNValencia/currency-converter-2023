@@ -1,12 +1,12 @@
-package com.in28minutes.microservices.currencyexchangeservice.services;
+package com.nephew.microservices.ccmongocrudservice.services;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.in28minutes.microservices.currencyexchangeservice.documents.Currency;
-import com.in28minutes.microservices.currencyexchangeservice.documents.CurrencyConversion;
-import com.in28minutes.microservices.currencyexchangeservice.repositories.CurrencyRepository;
+import com.nephew.microservices.ccmongocrudservice.documents.Currency;
+import com.nephew.microservices.ccmongocrudservice.documents.CurrencyConversion;
+import com.nephew.microservices.ccmongocrudservice.repositories.CurrencyRepository;
 
 @Service
 public class CurrencyService {

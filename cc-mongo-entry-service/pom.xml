@@ -8,10 +8,10 @@
 		<version>3.1.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.nephew.microservices</groupId>
-	<artifactId>cc-mongo-crud-service</artifactId>
+	<groupId>com.in28minutes.microservices</groupId>
+	<artifactId>cc-mongo-entry-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version> <!-- CHANGE-KUBERNETES -->
-	<name>cc-mongo-crud-service</name> <!-- CHANGE-KUBERNETES -->
+	<name>cc-mongo-entry-service</name> <!-- CHANGE-KUBERNETES -->
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -28,23 +28,28 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-		</dependency>
-		<!-- http://localhost:8000/swagger-ui/index.html -->
-		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>2.2.0</version>
-		</dependency>
-		
-		<!-- CHANGE-KUBERNETES -->
-<!-- 		<dependency>
+        
+		<!-- CHANGE-KUBERNETES --> 
+		<!--<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
- 
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+ -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+
+ 		<dependency>
+ 			<groupId>io.github.openfeign</groupId>
+ 			<artifactId>feign-micrometer</artifactId>
+ 		</dependency>
+		
+		<!--
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
@@ -60,9 +65,8 @@
 	        <artifactId>micrometer-tracing-bridge-otel</artifactId>
 	    </dependency>
 
-		
 		<!-- CHANGE-KUBERNETES -->
-<!-- 		<dependency>
+		<!--<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-sleuth-zipkin</artifactId>
 		</dependency>
@@ -71,26 +75,17 @@
 			<groupId>org.springframework.amqp</groupId>
 			<artifactId>spring-rabbit</artifactId>
 		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>		
-	
+			
 	    <dependency>
 	        <groupId>io.opentelemetry</groupId>
 	        <artifactId>opentelemetry-exporter-zipkin</artifactId>
 	    </dependency>
-
- -->
+ -->		
+		<!-- http://localhost:8100/swagger-ui/index.html -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-aop</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>io.github.resilience4j</groupId>
-			<artifactId>resilience4j-spring-boot2</artifactId>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.2.0</version>
 		</dependency>
 
 		<dependency>

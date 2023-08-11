@@ -1,14 +1,9 @@
-package com.in28minutes.microservices.currencyexchangeservice.documents;
+package com.nephew.microservices.ccmongoentryservice;
 
 import java.time.LocalDate;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document
 public class Currency {
 
-	@Id
 	private String id; // might not use this
 	private String fromName;
 	private String toName;

@@ -1,4 +1,4 @@
-package com.in28minutes.microservices.currencyexchangeservice.controllers;
+package com.nephew.microservices.ccmongocrudservice.controllers;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.in28minutes.microservices.currencyexchangeservice.documents.CurrencyConversion;
-import com.in28minutes.microservices.currencyexchangeservice.services.CurrencyService;
+import com.nephew.microservices.ccmongocrudservice.documents.CurrencyConversion;
+import com.nephew.microservices.ccmongocrudservice.services.CurrencyService;
 
 @RestController
 public class CurrencyExchangeController {
@@ -24,12 +24,10 @@ public class CurrencyExchangeController {
 	@Autowired
 	private Environment environment;
 
-	@GetMapping("/currency-crud-mongo/from/{from}/to/{to}")
+	@GetMapping("/cc-mongo-crud/from/{from}/to/{to}")
 	public CurrencyConversion retrieveChartData(@PathVariable String from, @PathVariable String to) {
 		logger.info("retrieveChartData called with {} to {}", from, to);
-		
 		List<CurrencyConversion> currencyExchange = currencyService.searchByName(from, to);
-		
 		if (currencyExchange.isEmpty()) {
 			throw new RuntimeException("Unable to Find data for " + from + " to " + to);
 		}
@@ -39,10 +37,8 @@ public class CurrencyExchangeController {
 		String version = "v1";
 		// currencyExchange.setEnvironment(port + " " + version + " " + host);
 		currencyExchange.get(0).setEnvironment(port + " " + version + " " + host);
-		
 		logger.info("retrieveChartData called with {} to {} with a successful response.", from, to);
 		return currencyExchange.get(0);
-
 	}
 
 }

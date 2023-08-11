@@ -1,4 +1,4 @@
-package com.in28minutes.microservices.currencyexchangeservice.documents;
+package com.nephew.microservices.ccmongocrudservice.documents;
 
 import java.util.List;
 
