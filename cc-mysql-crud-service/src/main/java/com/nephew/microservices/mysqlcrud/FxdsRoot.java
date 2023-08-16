@@ -1,4 +1,4 @@
-package com.nephew.microservices.datacollector;
+package com.nephew.microservices.mysqlcrud;
 
 import java.util.ArrayList;
 

@@ -1,5 +1,6 @@
 package com.nephew.microservices.mysqlcrud;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,10 +13,17 @@ public class MySqlCrudMicroserviceApplication {
 		SpringApplication.run(MySqlCrudMicroserviceApplication.class, args);
 	}
 	
+	@Autowired
+	private CurrencyConversionRepository repo;
+	
 	@Bean
 	public CommandLineRunner commandLineRunner() {
 		return args -> {
-			// Nothing to run yet.
+			FxdsResponse response = new FxdsResponse();
+			response.setBaseCurrency("USD");
+			response.setQuoteCurrency("EUR");
+			// response.setId(1l);
+			repo.save(response);
 		};
 	}
 

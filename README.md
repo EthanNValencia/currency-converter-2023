@@ -30,7 +30,7 @@ Learn Spring Data for MongoDB. (in progress)
 
 I need to decide on a specific charting library to use. It will need to be able to handle a significant number of data points. 
 
-Implement some sort of testing on the front-end. 
+Implement some sort of testing on the front-end (Selenium?). 
 
 I want to see if I can use Kafka to setup a data stream that will show users who and what conversions were conducted in real time. I think this could look like a smaller banner that stretches across the bottom of the UI with conversions slowly moving across the screen. I'd probably want to limit this feature to the most recent 100(ish) conversions. 
 

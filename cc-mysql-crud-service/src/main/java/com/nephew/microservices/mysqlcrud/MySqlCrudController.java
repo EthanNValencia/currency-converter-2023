@@ -5,6 +5,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -15,6 +18,7 @@ public class MySqlCrudController {
 	@Autowired
 	private Environment environment;
 
+	/*
 	@GetMapping("/cc-mysql-crud/test")
 	public String test() {
 		logger.info("test endpoint reached");
@@ -25,5 +29,12 @@ public class MySqlCrudController {
 		logger.info("test endpoint reached with a successful response.");
 		return response;
 	}
+	*/
+	
+	@PutMapping("/put-data")
+	public void saveCurrencyData(@RequestBody FxdsResponse response) {
+		
+	}
+	
 
 }

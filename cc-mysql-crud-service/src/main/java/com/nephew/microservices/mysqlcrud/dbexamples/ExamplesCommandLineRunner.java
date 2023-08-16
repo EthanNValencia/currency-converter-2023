@@ -15,7 +15,7 @@ public class ExamplesCommandLineRunner {
 	@Autowired
 	private CourseSpringDataJpaRepository springDataJpa;
 
-	@Bean
+	// @Bean
 	public CommandLineRunner commandLineRunnerDbExamples() {
 		return args -> {
 			courseJdbcExample(jdbc);
