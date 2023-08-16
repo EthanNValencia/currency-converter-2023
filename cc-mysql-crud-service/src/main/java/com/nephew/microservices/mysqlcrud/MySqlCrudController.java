@@ -1,26 +1,23 @@
-package com.nephew.microservices.ccmysqlcrudservice.controllers;
-
-import java.util.List;
+package com.nephew.microservices.mysqlcrud;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class MySQLCRUDController {
+public class MySqlCrudController {
 
-	private Logger logger = LoggerFactory.getLogger(MySQLCRUDController.class);
+	private Logger logger = LoggerFactory.getLogger(MySqlCrudController.class);
 
 	@Autowired
 	private Environment environment;
 
 	@GetMapping("/cc-mysql-crud/test")
 	public String test() {
-		logger.info("test enpoint reached");
+		logger.info("test endpoint reached");
 		String port = environment.getProperty("local.server.port");
 		String host = environment.getProperty("HOSTNAME");
 		String version = "v1";

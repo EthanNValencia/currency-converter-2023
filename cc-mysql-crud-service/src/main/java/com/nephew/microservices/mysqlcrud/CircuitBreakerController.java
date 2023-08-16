@@ -1,4 +1,4 @@
-package com.nephew.microservices.ccmysqlcrudservice.controllers;
+package com.nephew.microservices.mysqlcrud;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

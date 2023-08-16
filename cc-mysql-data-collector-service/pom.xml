@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.1.1</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.nephew.microservices</groupId>
-	<artifactId>cc-mysql-crud-service</artifactId>
+	<groupId>com.in28minutes.microservices</groupId>
+	<artifactId>cc-mysql-data-collector-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version> <!-- CHANGE-KUBERNETES -->
-	<name>cc-mysql-crud-service</name> <!-- CHANGE-KUBERNETES -->
-	<description>Microservice that makes operations to the MySQL database.</description>
+	<name>cc-mysql-data-collector-service</name> <!-- CHANGE-KUBERNETES -->
+	<description>Demo project for Spring Boot</description>
 
 	<properties>
 		<java.version>17</java.version>
@@ -30,46 +29,30 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jdbc</artifactId>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
+
+ 		<dependency>
+ 			<groupId>io.github.openfeign</groupId>
+ 			<artifactId>feign-micrometer</artifactId>
+ 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
+	        <groupId>io.micrometer</groupId>
+	        <artifactId>micrometer-observation</artifactId>
+    	</dependency>
+
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.27</version> <!-- Use the appropriate version -->
-		</dependency>
-		<!-- http://localhost:8000/swagger-ui/index.html -->
+	        <groupId>io.micrometer</groupId>
+	        <artifactId>micrometer-tracing-bridge-otel</artifactId>
+	    </dependency>
+		<!-- http://localhost:8200/swagger-ui/index.html -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.2.0</version>
 		</dependency>
-		<dependency>
-			<groupId>io.micrometer</groupId>
-			<artifactId>micrometer-observation</artifactId>
-		</dependency>
 
-		<dependency>
-			<groupId>io.micrometer</groupId>
-			<artifactId>micrometer-tracing-bridge-otel</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-aop</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.github.resilience4j</groupId>
-			<artifactId>resilience4j-spring-boot2</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -102,11 +85,10 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<image>
-						<name>
-							nephewtechnologies/${project.artifactId}:${project.version}</name>
+						<name>nephewtechnologies/${project.artifactId}:${project.version}</name>
 					</image>
 					<pullPolicy>IF_NOT_PRESENT</pullPolicy>
-				</configuration>
+				</configuration>				
 			</plugin>
 		</plugins>
 	</build>
