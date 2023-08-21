@@ -1,5 +1,8 @@
 # Plan
 
+### Note To Self
+It is better to work on the minor details instead of getting stuck on the big picture. Keep your head in the codebase. Don't get lost in the sky. 
+
 ## Goal  
 
 Migrate my old currency conversion tool (https://github.com/EthanNValencia/Currency_Converter) into a web-based tool. 
