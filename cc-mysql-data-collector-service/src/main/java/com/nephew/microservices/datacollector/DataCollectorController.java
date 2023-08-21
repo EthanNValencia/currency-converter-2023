@@ -16,6 +16,9 @@ public class DataCollectorController {
 	@Autowired
 	private FxdsProxy fxdsProxy;
 	
+	@Autowired
+	private MySqlCrudProxy mySqlCrudProxy;
+	
 	@GetMapping("/test")
 	public String testing() {
 		return "Test was successful";
@@ -24,10 +27,14 @@ public class DataCollectorController {
 	@GetMapping("/data-collector/base={base}&quote={quote}&start_date={startDate}&end_date={endDate}")
 	public FxdsRoot testingApiEndpoint(@PathVariable String base, @PathVariable String quote, @PathVariable String startDate, @PathVariable String endDate) {
 		logger.info("testingApiEndpoint called with {} to {} period {}-{}.", base, quote, startDate, endDate);
+		
 		String jsonResponse = fxdsProxy.retrieveFxdsData(base, quote, startDate, endDate);
+		
+		
 		try {
-            ObjectMapper objectMapper = new ObjectMapper();
+            ObjectMapper objectMapper = new ObjectMapper(); 
             FxdsRoot root = objectMapper.readValue(jsonResponse, FxdsRoot.class);
+            mySqlCrudProxy.saveCurrencyData(root);
             logger.info("testingApiEndpoint called with {} to {} period {}-{} request fulfilled.", base, quote, startDate, endDate);
             return root;
         } catch (Exception e) {

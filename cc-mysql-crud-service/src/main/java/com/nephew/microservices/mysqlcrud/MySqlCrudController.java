@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,7 +19,10 @@ public class MySqlCrudController {
 
 	@Autowired
 	private Environment environment;
-
+	
+	@Autowired
+	private FxdsService service;
+	
 	/*
 	@GetMapping("/cc-mysql-crud/test")
 	public String test() {
@@ -31,9 +36,10 @@ public class MySqlCrudController {
 	}
 	*/
 	
-	@PutMapping("/put-data")
-	public void saveCurrencyData(@RequestBody FxdsResponse response) {
-		
+	@PostMapping("/cc-mysql-crud/save-root")
+	public void saveCurrencyData(@RequestBody FxdsRoot root) {
+		service.saveFxdsResponse(root);
+		System.out.println(root);
 	}
 	
 

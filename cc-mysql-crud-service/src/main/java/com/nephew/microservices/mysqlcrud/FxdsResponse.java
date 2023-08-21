@@ -2,26 +2,37 @@ package com.nephew.microservices.mysqlcrud;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity(name="currency_conversion")
+@Entity(name = "currency_conversion")
 // @Table(name="currency_conversion", schema = "currency_db")
 public class FxdsResponse {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@JsonProperty("base_currency")
 	private String baseCurrency;
+	@JsonProperty("quote_currency")
 	private String quoteCurrency;
+	@JsonProperty("close_time")
 	private Date closeTime;
+	@JsonProperty("average_bid")
 	private Double averageBid;
+	@JsonProperty("average_ask")
 	private Double averageAsk;
+	@JsonProperty("high_bid")
 	private Double highBid;
+	@JsonProperty("high_ask")
 	private Double highAsk;
+	@JsonProperty("low_bid")
 	private Double lowBid;
+	@JsonProperty("low_ask")
 	private Double lowAsk;
 
 	public FxdsResponse() {

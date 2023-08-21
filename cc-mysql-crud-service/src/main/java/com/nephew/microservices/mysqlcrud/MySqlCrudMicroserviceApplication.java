@@ -14,7 +14,7 @@ public class MySqlCrudMicroserviceApplication {
 	}
 	
 	@Autowired
-	private CurrencyConversionRepository repo;
+	private FxdsResponseRepository repo;
 	
 	@Bean
 	public CommandLineRunner commandLineRunner() {
