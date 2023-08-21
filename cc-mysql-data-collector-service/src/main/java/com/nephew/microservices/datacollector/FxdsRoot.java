@@ -8,6 +8,7 @@ public class FxdsRoot {
 
 	public FxdsRoot() {
 		super();
+		this.response = new ArrayList<FxdsResponse>();
 	}
 
 	public FxdsRoot(ArrayList<FxdsResponse> response) {

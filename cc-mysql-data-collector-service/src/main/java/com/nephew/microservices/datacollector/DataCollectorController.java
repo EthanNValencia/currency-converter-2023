@@ -1,15 +1,12 @@
 package com.nephew.microservices.datacollector;
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 public class DataCollectorController {
@@ -23,40 +20,37 @@ public class DataCollectorController {
 	private MySqlCrudProxy mySqlCrudProxy;
 	
 	@Autowired
-	private FxdsRootMapper mapper;
+	private FxdsRootMapper fxdsRootMapper;
+	
+	@Autowired
+	private LocalDateComparator localDateComparator;
 	
 	@GetMapping("/test")
 	public String testing() {
 		return "Test was successful";
 	}
 	
-	// TODO Finish this, you need to fix the logic here. 
+	// TODO This is working. Consider breaking this logic out of the controller? 
 	@GetMapping("/data-collector/base={base}&quote={quote}&start_date={startDate}&end_date={endDate}")
 	public FxdsRoot collectDataByDates(@PathVariable String base, @PathVariable String quote, @PathVariable LocalDate startDate, @PathVariable LocalDate endDate) {
 		logger.info("collectDataByDates called with {} to {} period {}-{}.", base, quote, startDate, endDate);
-		long daysBetween = ChronoUnit.DAYS.between(startDate, endDate); // TODO check scratch pad to see how to use this. Should simplify the logic a lot. 
-		
-		int dateCompare = startDate.compareTo(endDate);
-		String jsonResponse = null;
-		if (dateCompare < 0) { // startDate is before endDate (valid case)
-		    dateCompare = startDate.compareTo(endDate.minusDays(1)); // Check if provided dates are exactly one day apart. 
-			if(dateCompare == 0) { // If they are one day apart
+		localDateComparator = new LocalDateComparator(startDate, endDate); 
+		if (localDateComparator.isValid()) { // startDate is before endDate (valid case)
+			String jsonResponse = null;
+			if(localDateComparator.isMoreThanADay()) { // If they are more than one day apart
+				for(int i = 0; i < (int) localDateComparator.getDaysBetween(); i++) {
+					jsonResponse = fxdsProxy.retrieveFxdsData(base, quote, endDate.minusDays(i+1).toString(), endDate.minusDays(i).toString());
+					fxdsRootMapper.readJson(jsonResponse);
+				}
+			} else {
 				jsonResponse = fxdsProxy.retrieveFxdsData(base, quote, startDate.toString(), endDate.toString());
-				mapper.readJson(jsonResponse);
-			} else { // else multiple api calls are required. 
-		    	
+				fxdsRootMapper.readJson(jsonResponse);
 		    }
-			
-		} else if (dateCompare > 0) { // startDate is after endDate (invalid case)
-			// TODO throw invalid date exception? 
 		} else { // startDate is equal to endDate (invalid case)
 			// TODO throw invalid date exception? 
-		}
-		
-		
-		// String jsonResponse = fxdsProxy.retrieveFxdsData(base, quote, startDate.toString(), endDate.toString());
+		}	
 		logger.info("collectDataByDates called with {} to {} period {}-{} request not fullfilled. Something went wrong.", base, quote, startDate, endDate);
-		return mapper.getResponseRoot();
+		return fxdsRootMapper.getResponseRoot();
 	}
 
 }

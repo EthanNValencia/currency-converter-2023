@@ -1,17 +1,11 @@
 package com.nephew.microservices.datacollector;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.stereotype.Service;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@Service
 public class FxdsRootMapper {
-	
+
 	private ObjectMapper objectMapper;
 	private FxdsRoot responseRoot;
 
@@ -22,9 +16,12 @@ public class FxdsRootMapper {
 	}
 
 	public void readJson(String jsonResponse) {
+		System.out.println("ObjectMapper" + objectMapper);
+		System.out.println("FxdsRoot" + responseRoot);
+
 		try {
 			FxdsRoot root = objectMapper.readValue(jsonResponse, FxdsRoot.class);
-			if(root != null) {
+			if (root != null) {
 				responseRoot.getResponse().add(root.getResponse().get(0));
 			}
 		} catch (JsonMappingException e) {
@@ -39,5 +36,5 @@ public class FxdsRootMapper {
 	public FxdsRoot getResponseRoot() {
 		return responseRoot;
 	}
-	
+
 }
