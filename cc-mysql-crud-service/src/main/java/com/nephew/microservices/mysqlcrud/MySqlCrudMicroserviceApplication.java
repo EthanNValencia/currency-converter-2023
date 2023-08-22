@@ -16,7 +16,7 @@ public class MySqlCrudMicroserviceApplication {
 	@Autowired
 	private FxdsResponseRepository repo;
 	
-	@Bean
+	// @Bean
 	public CommandLineRunner commandLineRunner() {
 		return args -> {
 			FxdsResponse response = new FxdsResponse();
