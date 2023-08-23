@@ -9,15 +9,20 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nephew.microservices.mysqlcrud.entities.Rate;
 import com.nephew.microservices.mysqlcrud.fxds.FxdsResponse;
 import com.nephew.microservices.mysqlcrud.fxds.FxdsRoot;
 import com.nephew.microservices.mysqlcrud.fxds.FxdsService;
+import com.nephew.microservices.mysqlcrud.services.RateService;
 
 @RestController
+@RequestMapping("/cc-mysql-crud")
 public class MySqlCrudController {
 
 	private Logger logger = LoggerFactory.getLogger(MySqlCrudController.class);
@@ -26,8 +31,11 @@ public class MySqlCrudController {
 	// private Environment environment;
 
 	@Autowired
-	private FxdsService service;
+	private FxdsService fxdsService;
 
+	@Autowired
+	private RateService rateService;
+	
 	/*
 	 * @GetMapping("/cc-mysql-crud/test") public String test() {
 	 * logger.info("test endpoint reached"); String port =
@@ -38,36 +46,45 @@ public class MySqlCrudController {
 	 * response; }
 	 */
 
-	@PostMapping("/cc-mysql-crud/save-root")
+	@PostMapping("/save-root")
 	public void saveAllCurrencyData(@RequestBody FxdsRoot root) {
 		logger.info("saveAllCurrencyData called with {} items in the response arraylist.", root.getResponse().size());
-		service.saveAllFxdsResponse(root);
+		fxdsService.saveAllFxdsResponse(root);
 		logger.info("SUCCESS saveAllCurrencyData called with {} items in the response arraylist was successful.",
 				root.getResponse().size());
 	}
 
-	@GetMapping("/cc-mysql-crud/get-all-responses")
+	@GetMapping("/get-all-responses")
 	public List<FxdsResponse> getAllResponses() {
 		logger.info("All currency data was requested.");
-		return service.getAllResponses();
+		return fxdsService.getAllResponses();
 	}
 	
-	@GetMapping("/cc-mysql-crud/get-max-date")
+	@GetMapping("/get-max-date")
 	public LocalDate getMaxCloseTime() {
 		logger.info("The max currency date was requested.");
-		return service.getMaxCloseTime();
+		return fxdsService.getMaxCloseTime();
 	}
 	
-	@GetMapping("/cc-mysql-crud/get-min-date")
+	@GetMapping("/get-min-date")
 	public LocalDate getMinCloseTime() {
 		logger.info("The min currency date was requested.");
-		return service.getMinCloseTime();
+		return fxdsService.getMinCloseTime();
 	}
 	
-	@GetMapping("/cc-mysql-crud/get-all-dates")
+	@GetMapping("/get-all-dates")
 	public List<?> getAllCloseTimes() {
 		logger.info("The min currency date was requested.");
-		return service.getAllCloseTimes();
+		return fxdsService.getAllCloseTimes();
+	}
+	
+	@GetMapping("/base={base}&quote={quote}&start_date={startDate}&end_date={endDate}")
+	public List<Rate> getRatesByBaseQuoteAndRange(@PathVariable String base, @PathVariable String quote,
+			@PathVariable LocalDate startDate, @PathVariable LocalDate endDate) {
+		List<Rate> rates = rateService.findByBaseQuoteAndRange(base, quote, startDate, endDate);
+		
+		return rates;
+		
 	}
 
 }
