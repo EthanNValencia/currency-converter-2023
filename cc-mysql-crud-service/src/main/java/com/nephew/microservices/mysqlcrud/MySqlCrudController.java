@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nephew.microservices.mysqlcrud.fxds.FxdsResponse;
+import com.nephew.microservices.mysqlcrud.fxds.FxdsRoot;
+import com.nephew.microservices.mysqlcrud.fxds.FxdsService;
+
 @RestController
 public class MySqlCrudController {
 
@@ -22,7 +26,7 @@ public class MySqlCrudController {
 	// private Environment environment;
 
 	@Autowired
-	private MySqlCrudService service;
+	private FxdsService service;
 
 	/*
 	 * @GetMapping("/cc-mysql-crud/test") public String test() {

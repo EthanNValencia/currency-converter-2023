@@ -6,6 +6,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.nephew.microservices.mysqlcrud.repositories.PairRepository;
+import com.nephew.microservices.mysqlcrud.entities.Pair;
+
 @SpringBootApplication
 public class MySqlCrudMicroserviceApplication {
 
@@ -14,17 +17,30 @@ public class MySqlCrudMicroserviceApplication {
 	}
 	
 	@Autowired
-	private FxdsResponseRepository repo;
+	private PairRepository pairRepo;
 	
 	// @Bean
 	public CommandLineRunner commandLineRunner() {
 		return args -> {
-			FxdsResponse response = new FxdsResponse();
-			response.setBaseCurrency("USD");
-			response.setQuoteCurrency("EUR");
-			// response.setId(1l);
-			repo.save(response);
+			Pair pair = new Pair();
+			pair.setBaseCurrency("USD");
+			pair.setQuoteCurrency("EUR");
+			pairRepo.save(pair);
 		};
 	}
+	
 
+/*
+
+The bean 'dateRepository', defined in com.nephew.microservices.mysqlcrud.repositories.DateRepository defined in 
+@EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration, could not be registered. 
+A bean with that name has already been defined in com.nephew.microservices.mysqlcrud.repositories.DateRepository defined in 
+@EnableJdbcRepositories declared on JdbcRepositoriesRegistrar.EnableJdbcRepositoriesConfiguration and overriding is disabled.
+
+
+ */
+	
+	
+	
+	
 }

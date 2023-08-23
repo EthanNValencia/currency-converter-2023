@@ -1,4 +1,4 @@
-package com.nephew.microservices.mysqlcrud;
+package com.nephew.microservices.datacollector;
 
 import java.util.ArrayList;
 
@@ -8,6 +8,7 @@ public class FxdsRoot {
 
 	public FxdsRoot() {
 		super();
+		this.response = new ArrayList<FxdsResponse>();
 	}
 
 	public FxdsRoot(ArrayList<FxdsResponse> response) {

@@ -1,21 +1,10 @@
-package com.nephew.microservices.mysqlcrud;
+package com.nephew.microservices.datacollector;
 
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity(name = "currency_conversion")
-// @Table(name="currency_conversion", schema = "currency_db")
 public class FxdsResponse {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 	@JsonProperty("base_currency")
 	private String baseCurrency;
 	@JsonProperty("quote_currency")
@@ -23,28 +12,20 @@ public class FxdsResponse {
 	@JsonProperty("close_time")
 	private Date closeTime;
 	@JsonProperty("average_bid")
-	private Double averageBid;
+	private String averageBid;
 	@JsonProperty("average_ask")
-	private Double averageAsk;
+	private String averageAsk;
 	@JsonProperty("high_bid")
-	private Double highBid;
+	private String highBid;
 	@JsonProperty("high_ask")
-	private Double highAsk;
+	private String highAsk;
 	@JsonProperty("low_bid")
-	private Double lowBid;
+	private String lowBid;
 	@JsonProperty("low_ask")
-	private Double lowAsk;
+	private String lowAsk;
 
 	public FxdsResponse() {
 		super();
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getBaseCurrency() {
@@ -71,51 +52,51 @@ public class FxdsResponse {
 		this.closeTime = closeTime;
 	}
 
-	public Double getAverageBid() {
+	public String getAverageBid() {
 		return averageBid;
 	}
 
-	public void setAverageBid(Double averageBid) {
+	public void setAverageBid(String averageBid) {
 		this.averageBid = averageBid;
 	}
 
-	public Double getAverageAsk() {
+	public String getAverageAsk() {
 		return averageAsk;
 	}
 
-	public void setAverageAsk(Double averageAsk) {
+	public void setAverageAsk(String averageAsk) {
 		this.averageAsk = averageAsk;
 	}
 
-	public Double getHighBid() {
+	public String getHighBid() {
 		return highBid;
 	}
 
-	public void setHighBid(Double highBid) {
+	public void setHighBid(String highBid) {
 		this.highBid = highBid;
 	}
 
-	public Double getHighAsk() {
+	public String getHighAsk() {
 		return highAsk;
 	}
 
-	public void setHighAsk(Double highAsk) {
+	public void setHighAsk(String highAsk) {
 		this.highAsk = highAsk;
 	}
 
-	public Double getLowBid() {
+	public String getLowBid() {
 		return lowBid;
 	}
 
-	public void setLowBid(Double lowBid) {
+	public void setLowBid(String lowBid) {
 		this.lowBid = lowBid;
 	}
 
-	public Double getLowAsk() {
+	public String getLowAsk() {
 		return lowAsk;
 	}
 
-	public void setLowAsk(Double lowAsk) {
+	public void setLowAsk(String lowAsk) {
 		this.lowAsk = lowAsk;
 	}
 

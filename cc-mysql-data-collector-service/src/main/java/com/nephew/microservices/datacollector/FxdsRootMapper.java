@@ -16,9 +16,6 @@ public class FxdsRootMapper {
 	}
 
 	public void readJson(String jsonResponse) {
-		System.out.println("ObjectMapper" + objectMapper);
-		System.out.println("FxdsRoot" + responseRoot);
-
 		try {
 			FxdsRoot root = objectMapper.readValue(jsonResponse, FxdsRoot.class);
 			if (root != null) {

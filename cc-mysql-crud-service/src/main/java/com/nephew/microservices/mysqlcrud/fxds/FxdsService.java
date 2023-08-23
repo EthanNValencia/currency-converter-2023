@@ -1,9 +1,8 @@
-package com.nephew.microservices.mysqlcrud;
+package com.nephew.microservices.mysqlcrud.fxds;
 
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MySqlCrudService {
+public class FxdsService {
 
 	@Autowired
 	private FxdsResponseRepository repo;
