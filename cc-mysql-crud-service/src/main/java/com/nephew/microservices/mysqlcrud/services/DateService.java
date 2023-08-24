@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.nephew.microservices.mysqlcrud.entities.Date;
 import com.nephew.microservices.mysqlcrud.repositories.DateRepository;
 
 @Service
@@ -14,17 +15,28 @@ public class DateService {
 	@Autowired
 	private DateRepository repo;
 	
-	public LocalDate findByDate(LocalDate date) {
-		// return repo.findByDate(date).get();
-		return null;
+	public Date findById(Long id) {
+		return repo.findById(id).get();
+	}
+	
+	public Date findByDate(LocalDate date) {
+		return repo.findByDate(date).get();
 	}
 
 	public Boolean doesDatabaseContainDate(LocalDate date) {
-		Optional<LocalDate> localDate = repo.findDistinctByDate(date);
+		Optional<Date> localDate = repo.findDistinctByDate(date);
 		if(localDate.isEmpty()) {
 			return false;
 		}
 		return true;
+	}
+	
+	public Date saveDate(Date date) {
+		return repo.save(date);
+	}
+	
+	public void deleteDate(Date date) {
+		repo.delete(date);
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.nephew.microservices.mysqlcrud.fxds;
+package com.nephew.microservices.mysqlcrud.entities;
 
 import java.util.Date;
 

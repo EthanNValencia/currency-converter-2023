@@ -11,6 +11,8 @@ import com.nephew.microservices.mysqlcrud.entities.Date;
 @Repository
 public interface DateRepository extends JpaRepository<Date, Long> {
 
-	Optional<LocalDate> findDistinctByDate(LocalDate date);
+	Optional<Date> findDistinctByDate(LocalDate date);
+	
+	Optional<Date> findByDate(LocalDate date);
 
 }
