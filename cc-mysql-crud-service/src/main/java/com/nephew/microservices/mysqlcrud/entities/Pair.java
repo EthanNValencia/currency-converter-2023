@@ -3,6 +3,7 @@ package com.nephew.microservices.mysqlcrud.entities;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,11 +12,13 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class Pair {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(length = 3)
 	private String baseCurrency;
+	@Column(length = 3)
 	private String quoteCurrency;
 
 	@OneToMany(mappedBy = "pair", cascade = CascadeType.ALL)
