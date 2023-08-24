@@ -19,6 +19,7 @@ import com.nephew.microservices.mysqlcrud.entities.Rate;
 import com.nephew.microservices.mysqlcrud.fxds.FxdsResponse;
 import com.nephew.microservices.mysqlcrud.fxds.FxdsRoot;
 import com.nephew.microservices.mysqlcrud.fxds.FxdsService;
+import com.nephew.microservices.mysqlcrud.services.DateService;
 import com.nephew.microservices.mysqlcrud.services.RateService;
 
 @RestController
@@ -35,6 +36,9 @@ public class MySqlCrudController {
 
 	@Autowired
 	private RateService rateService;
+	
+	@Autowired
+	private DateService dateService;
 	
 	/*
 	 * @GetMapping("/cc-mysql-crud/test") public String test() {
@@ -82,9 +86,13 @@ public class MySqlCrudController {
 	public List<Rate> getRatesByBaseQuoteAndRange(@PathVariable String base, @PathVariable String quote,
 			@PathVariable LocalDate startDate, @PathVariable LocalDate endDate) {
 		List<Rate> rates = rateService.findByBaseQuoteAndRange(base, quote, startDate, endDate);
-		
 		return rates;
-		
+	}
+	
+	@GetMapping("/contains/date={date}")
+	public Boolean doesDatabaseContainLocalDate(@PathVariable LocalDate date) {
+		Boolean containsDate = dateService.doesDatabaseContainDate(date);
+		return containsDate;
 	}
 
 }

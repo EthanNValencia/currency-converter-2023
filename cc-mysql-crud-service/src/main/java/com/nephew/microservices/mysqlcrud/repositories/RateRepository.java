@@ -13,8 +13,8 @@ import com.nephew.microservices.mysqlcrud.entities.Rate;
 public interface RateRepository extends JpaRepository<Rate, Long> {
 	
 	// TODO Write this query
-	@Query()
-	List<Rate> findByBaseAndQuoteAndDateBetween(String base, String quote, LocalDate startDate, LocalDate endDate);
+	// @Query()
+	// List<Rate> findByBaseAndQuoteAndDateBetween(String base, String quote, LocalDate startDate, LocalDate endDate);
 
 }
 

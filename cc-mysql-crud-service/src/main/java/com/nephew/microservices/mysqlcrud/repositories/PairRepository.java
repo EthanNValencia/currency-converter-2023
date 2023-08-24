@@ -8,4 +8,6 @@ import com.nephew.microservices.mysqlcrud.entities.Pair;
 @Repository
 public interface PairRepository extends JpaRepository<Pair, Long> {
 
+	Pair findByBaseCurrencyAndQuoteCurrency(String base, String quote);
+
 }
