@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.in28minutes.microservices</groupId>
-	<artifactId>cc-mongo-entry-service</artifactId>
+	<artifactId>cc-entry-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version> <!-- CHANGE-KUBERNETES -->
-	<name>cc-mongo-entry-service</name> <!-- CHANGE-KUBERNETES -->
+	<name>cc-entry-service</name> <!-- CHANGE-KUBERNETES -->
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -29,16 +29,6 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
         
-		<!-- CHANGE-KUBERNETES --> 
-		<!--<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
- -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
@@ -49,12 +39,6 @@
  			<artifactId>feign-micrometer</artifactId>
  		</dependency>
 		
-		<!--
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-sleuth</artifactId>
-		</dependency>-->
-		
 		<dependency>
 	        <groupId>io.micrometer</groupId>
 	        <artifactId>micrometer-observation</artifactId>
@@ -64,24 +48,7 @@
 	        <groupId>io.micrometer</groupId>
 	        <artifactId>micrometer-tracing-bridge-otel</artifactId>
 	    </dependency>
-
-		<!-- CHANGE-KUBERNETES -->
-		<!--<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-sleuth-zipkin</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.amqp</groupId>
-			<artifactId>spring-rabbit</artifactId>
-		</dependency>
-			
-	    <dependency>
-	        <groupId>io.opentelemetry</groupId>
-	        <artifactId>opentelemetry-exporter-zipkin</artifactId>
-	    </dependency>
- -->		
-		<!-- http://localhost:8100/swagger-ui/index.html -->
+		<!-- http://localhost:<port>/swagger-ui/index.html -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
@@ -98,6 +65,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.nephew.cc</groupId>
+			<artifactId>cc-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

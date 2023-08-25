@@ -1,4 +1,4 @@
-package com.nephew.microservices.mysqlcrud.entities;
+package com.nephew.common.entities;
 
 import java.util.ArrayList;
 

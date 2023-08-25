@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.nephew.microservices.mysqlcrud.entities.FxdsResponse;
+import com.nephew.common.entities.FxdsResponse;
 
 @Repository
 public interface FxdsResponseRepository extends JpaRepository<FxdsResponse, Long> {
@@ -16,8 +16,9 @@ public interface FxdsResponseRepository extends JpaRepository<FxdsResponse, Long
 
 	@Query(value = "SELECT MIN(DATE(close_time)) FROM currency_db.currency_conversion", nativeQuery = true)
 	LocalDate getTheMinCloseTime();
-	
-	// SELECT DISTINCT DATE(close_time) AS unique_dates FROM currency_db.currency_conversion;
+
+	// SELECT DISTINCT DATE(close_time) AS unique_dates FROM
+	// currency_db.currency_conversion;
 	@Query(value = "SELECT DISTINCT DATE(close_time) FROM currency_db.currency_conversion", nativeQuery = true)
 	List<?> getAllCloseTimes();
 }

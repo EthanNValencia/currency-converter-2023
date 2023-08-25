@@ -1,4 +1,4 @@
-package com.nephew.microservices.mysqlcrud.entities;
+package com.nephew.common.entities;
 
 import java.util.Date;
 
@@ -10,7 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity(name = "currency_conversion")
+@Entity(name = "fxds_responses")
 // @Table(name="currency_conversion", schema = "currency_db")
 public class FxdsResponse {
 

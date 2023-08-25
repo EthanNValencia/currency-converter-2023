@@ -4,12 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 
 import com.nephew.microservices.mysqlcrud.repositories.PairRepository;
-import com.nephew.microservices.mysqlcrud.entities.Pair;
+import com.nephew.common.entities.Pair;
 
 @SpringBootApplication
+@EntityScan(basePackages = "com.nephew.common.entities")
 public class MySqlCrudMicroserviceApplication {
 
 	public static void main(String[] args) {

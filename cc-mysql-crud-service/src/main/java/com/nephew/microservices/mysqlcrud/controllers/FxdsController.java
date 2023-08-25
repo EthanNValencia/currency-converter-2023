@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nephew.microservices.mysqlcrud.entities.FxdsResponse;
-import com.nephew.microservices.mysqlcrud.entities.FxdsRoot;
+import com.nephew.common.entities.FxdsResponse;
+import com.nephew.common.entities.FxdsRoot;
 import com.nephew.microservices.mysqlcrud.services.FxdsService;
 
 @RestController

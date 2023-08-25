@@ -1,16 +1,19 @@
-package com.nephew.microservices.mysqlcrud.entities;
+package com.nephew.common.entities;
 
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "pairs")
 public class Pair {
 	
 	@Id
@@ -21,7 +24,7 @@ public class Pair {
 	@Column(length = 3)
 	private String quoteCurrency;
 
-	@OneToMany(mappedBy = "pair", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "pair", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Rate> rate;
 
 	public Pair() {

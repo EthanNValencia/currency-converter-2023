@@ -1,4 +1,4 @@
-package com.nephew.microservices.mysqlcrud.entities;
+package com.nephew.common.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -6,13 +6,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "rates")
 public class Rate {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	private Double xRate;
 	private Double averageBid;
 	private Double averageAsk;
 	private Double highBid;
@@ -30,6 +32,14 @@ public class Rate {
 
 	public Rate() {
 		super();
+	}
+
+	public Double getxRate() {
+		return xRate;
+	}
+
+	public void setxRate(Double xRate) {
+		this.xRate = xRate;
 	}
 
 	public Long getId() {

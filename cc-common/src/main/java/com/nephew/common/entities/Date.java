@@ -1,4 +1,4 @@
-package com.nephew.microservices.mysqlcrud.entities;
+package com.nephew.common.entities;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -9,8 +9,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "dates")
 public class Date {
 	
 	@Id

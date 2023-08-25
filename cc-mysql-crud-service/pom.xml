@@ -47,7 +47,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.27</version> <!-- Use the appropriate version -->
 		</dependency>
-		<!-- http://localhost:8000/swagger-ui/index.html -->
+		<!-- http://localhost:<port>/swagger-ui/index.html -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
@@ -80,6 +80,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.nephew.cc</groupId>
+			<artifactId>cc-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

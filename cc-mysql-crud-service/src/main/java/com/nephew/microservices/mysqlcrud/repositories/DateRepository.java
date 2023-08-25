@@ -6,7 +6,8 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.nephew.microservices.mysqlcrud.entities.Date;
+import com.nephew.common.entities.Date;
+
 
 @Repository
 public interface DateRepository extends JpaRepository<Date, Long> {

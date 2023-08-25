@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
+import com.nephew.common.entities.XRatesUsdData;
+
+
 /***
  * The ServerWebReader class is similar to the client-side WebReader class, however, it is not similar enough to make inheritance useful.
  */
@@ -89,10 +92,10 @@ public class WebReader {
      * @param content It requires a string of post-processed text.
      * @return It returns the HashSet of ServerCurrency objects.
      */
-    public HashSet<CurrencyData> createCurrencyList(String content){
+    public HashSet<XRatesUsdData> createCurrencyList(String content){
         Scanner scan = new Scanner(content);
         String currencyDescription = "";
-        HashSet<CurrencyData> currencyHashSet = new HashSet<CurrencyData>();
+        HashSet<XRatesUsdData> currencyHashSet = new HashSet<XRatesUsdData>();
         String reader = "";
         while (scan.hasNextLine()) {
             reader = scan.nextLine();
@@ -100,7 +103,7 @@ public class WebReader {
                 currencyDescription = reader;
                 reader = scan.nextLine();
             }
-            currencyHashSet.add(new CurrencyData(findCurrencyName(reader), findCurrencyRate(reader), date, currencyDescription));
+            currencyHashSet.add(new XRatesUsdData(findCurrencyName(reader), findCurrencyRate(reader), date, currencyDescription));
         }
         return currencyHashSet;
     }
@@ -166,8 +169,8 @@ public class WebReader {
      * @param websiteURL It requires the URL of the website as a string.
      * @return It returns the HashSet of generated ServerCurrency objects.
      */
-    public HashSet<CurrencyData> getPage(String websiteURL) {
-        HashSet<CurrencyData> currencyList;
+    public HashSet<XRatesUsdData> getPage(String websiteURL) {
+        HashSet<XRatesUsdData> currencyList;
         try {
             URL url = new URL(websiteURL);
             Scanner scan = new Scanner(url.openStream());

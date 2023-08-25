@@ -5,21 +5,24 @@ import java.util.HashSet;
 
 import org.springframework.stereotype.Service;
 
+import com.nephew.common.entities.XRatesUsdData;
+
+
 @Service
 public class WebReaderService {
 	
 	private LocalDate DATE_TODAY = LocalDate.now();
     private String WEBSITE_URL = "https://www.x-rates.com/historical/?from=USD&amount=1&date=";
 
-	public HashSet<CurrencyData> collectTodaysCurrencyDataBaseUsd() {
+	public HashSet<XRatesUsdData> collectTodaysCurrencyDataBaseUsd() {
 		WebReader serverWebReader = new WebReader();
-        HashSet<CurrencyData> currencyHashSet = serverWebReader.getPage(WEBSITE_URL + DATE_TODAY);
+        HashSet<XRatesUsdData> currencyHashSet = serverWebReader.getPage(WEBSITE_URL + DATE_TODAY);
         return currencyHashSet;
 	}
 	
-	public HashSet<CurrencyData> collectCurrencyDataBaseUsdByLocalDate(LocalDate localDate) {
+	public HashSet<XRatesUsdData> collectCurrencyDataBaseUsdByLocalDate(LocalDate localDate) {
 		WebReader serverWebReader = new WebReader();
-        HashSet<CurrencyData> currencyHashSet = serverWebReader.getPage(WEBSITE_URL + localDate);
+        HashSet<XRatesUsdData> currencyHashSet = serverWebReader.getPage(WEBSITE_URL + localDate);
         return currencyHashSet;
 	}
 	

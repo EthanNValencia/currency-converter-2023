@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nephew.microservices.datacollector.webreader.CurrencyData;
+import com.nephew.common.entities.XRatesUsdData;
 import com.nephew.microservices.datacollector.webreader.WebReaderService;
 
 /***
@@ -56,12 +56,12 @@ public class DataCollectorController {
 	}
 	
 	@GetMapping("/todays-rates-base-usd")
-	public HashSet<CurrencyData> getTodaysCurrencyDataBaseUsd() {
+	public HashSet<XRatesUsdData> getTodaysCurrencyDataBaseUsd() {
 		return wrService.collectTodaysCurrencyDataBaseUsd();
 	}
 	
 	@GetMapping("/rates-base-usd/date/{date}")
-	public HashSet<CurrencyData> getTodaysCurrencyDataBaseUsd(@PathVariable LocalDate date) {
+	public HashSet<XRatesUsdData> getTodaysCurrencyDataBaseUsd(@PathVariable LocalDate date) {
 		return wrService.collectCurrencyDataBaseUsdByLocalDate(date);
 	}
 

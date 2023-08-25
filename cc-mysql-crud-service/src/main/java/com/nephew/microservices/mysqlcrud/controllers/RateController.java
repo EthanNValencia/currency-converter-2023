@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nephew.microservices.mysqlcrud.entities.Rate;
+import com.nephew.common.entities.Rate;
 import com.nephew.microservices.mysqlcrud.services.RateService;
 
 @RestController

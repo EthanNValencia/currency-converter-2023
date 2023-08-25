@@ -9,8 +9,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nephew.microservices.mysqlcrud.entities.FxdsResponse;
-import com.nephew.microservices.mysqlcrud.entities.FxdsRoot;
+import com.nephew.common.entities.FxdsResponse;
+import com.nephew.common.entities.FxdsRoot;
 import com.nephew.microservices.mysqlcrud.repositories.FxdsResponseRepository;
 
 @Service
