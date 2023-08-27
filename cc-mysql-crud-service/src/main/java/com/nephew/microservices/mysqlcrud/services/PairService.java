@@ -27,5 +27,15 @@ public class PairService {
 	public void deletePair(Pair pair) {
 		repo.delete(pair);
 	}
+
+	public Boolean databaseContainsBaseAndQuote(String base, String quote) {
+		int databaseContainsBaseAndQuote = repo.databaseContainsBaseAndQuote(base, quote);
+		if(databaseContainsBaseAndQuote == 1) {
+			return true;
+		} else if (databaseContainsBaseAndQuote == 0) {
+			return false;
+		}		
+		return false;
+	}
 	
 }

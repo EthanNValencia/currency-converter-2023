@@ -28,6 +28,11 @@ public class Date {
 		super();
 	}
 
+	public Date(LocalDate localDate) {
+		super();
+		this.date = localDate;
+	}
+
 	public Long getId() {
 		return id;
 	}

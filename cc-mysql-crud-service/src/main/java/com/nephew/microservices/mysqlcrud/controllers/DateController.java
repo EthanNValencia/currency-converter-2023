@@ -50,5 +50,11 @@ public class DateController {
 	public void deleteDate(@RequestBody Date date) {
 		dateService.deleteDate(date);
 	}
-
+	
+	
+	@PostMapping("/create-date/date={date}")
+	public Date createDate(@PathVariable LocalDate date) {
+		Date savedDate = dateService.saveLocalDate(date);
+		return savedDate;
+	}
 }

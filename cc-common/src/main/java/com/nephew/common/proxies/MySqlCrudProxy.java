@@ -61,6 +61,9 @@ public interface MySqlCrudProxy {
 	@GetMapping("/find-pair/base={base}&quote={quote}")
 	public Pair findByBaseCurrencyAndQuoteCurrency(@PathVariable String base, @PathVariable String quote);
 
+	@GetMapping("/contains/base={base}&quote={quote}&begin={beginDate}&end={endDate}")
+	public Boolean doesDatabaseContainCurrencyPairAndDateRange(@PathVariable String base, @PathVariable String quote, @PathVariable LocalDate beginDate, @PathVariable LocalDate startDate);
+	
 	@PostMapping("/save-pair")
 	public Pair savePair(@RequestBody Pair pair);
 

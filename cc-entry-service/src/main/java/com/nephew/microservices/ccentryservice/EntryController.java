@@ -21,5 +21,6 @@ public class EntryController {
 		Pair pair = mySqlProxy.findByBaseCurrencyAndQuoteCurrency("USD", "EUR");
 		return pair;
 	}
+	
 
 }

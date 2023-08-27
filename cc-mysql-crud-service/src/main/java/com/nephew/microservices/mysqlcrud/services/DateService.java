@@ -35,6 +35,10 @@ public class DateService {
 		return repo.save(date);
 	}
 	
+	public Date saveLocalDate(LocalDate localDate) {	
+		return repo.save(new Date(localDate));
+	}
+	
 	public void deleteDate(Date date) {
 		repo.delete(date);
 	}
