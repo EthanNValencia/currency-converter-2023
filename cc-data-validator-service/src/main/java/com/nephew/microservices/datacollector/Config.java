@@ -13,10 +13,4 @@ public class Config {
 		return new LocalDateComparator();
 	}
 	
-	@Bean
-	FxdsRootMapper fxdsRootMapper() {
-		return new FxdsRootMapper();
-	}
-	
-	
 }

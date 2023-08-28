@@ -1,4 +1,4 @@
-package com.nephew.common.proxies;
+package com.nephew.microservices.datacollector;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -27,8 +27,8 @@ public interface MySqlCrudProxy {
 	@GetMapping("/find-date/date={date}")
 	public Date findByLocalDate(@PathVariable LocalDate date);
 
-	@GetMapping("/contains-date/localdate={localDate}")
-	public Boolean doesDatabaseContainLocalDate(@PathVariable String localDate);
+	@GetMapping("/contains-date/date={date}")
+	public Boolean doesDatabaseContainLocalDate(@PathVariable LocalDate date);
 
 	@PostMapping("/save-date")
 	public Date saveDate(@RequestBody Date date);

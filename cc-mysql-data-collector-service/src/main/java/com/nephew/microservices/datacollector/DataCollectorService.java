@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.nephew.common.support.LocalDateComparator;
+
 @Service
 public class DataCollectorService {
 	
@@ -35,7 +37,7 @@ public class DataCollectorService {
 		}
 		logger.warn("SUCCESS processRequest called with {} to {} period {}-{} request was fulfilled.",
 				base, quote, startDate, endDate);
-		mySqlCrudProxy.saveCurrencyData(fxdsRootMapper.getResponseRoot());
+		// mySqlCrudProxy.saveCurrencyData(fxdsRootMapper.getResponseRoot());
 		return fxdsRootMapper.getResponseRoot();
 	}
 	

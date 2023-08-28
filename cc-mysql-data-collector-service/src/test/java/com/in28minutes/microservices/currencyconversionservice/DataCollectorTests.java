@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.nephew.common.support.LocalDateComparator;
 import com.nephew.microservices.datacollector.Config;
 import com.nephew.microservices.datacollector.FxdsRootMapper;
-import com.nephew.microservices.datacollector.LocalDateComparator;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(classes = {Config.class})

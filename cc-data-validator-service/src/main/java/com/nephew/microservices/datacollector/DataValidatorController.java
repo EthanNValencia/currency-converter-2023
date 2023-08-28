@@ -17,7 +17,7 @@ public class DataValidatorController {
 	private Logger logger = LoggerFactory.getLogger(DataValidatorController.class);
 
 	@Autowired
-	private MySqlCrudProxy mySqlProxy;
+	private DataValidatorService service;
 	
 	@GetMapping("/test")
 	public String testing() {
@@ -27,12 +27,15 @@ public class DataValidatorController {
 	
 	// validate currency conversion with a range. 
 	@GetMapping("contains/base={base}&quote={quote}&begin={beginDate}&end={endDate}")
-	public Boolean validateCurrencyPairByDateRange(@PathVariable String base, @PathVariable String quote, @PathVariable LocalDate beginDate, @PathVariable LocalDate startDate) {
-		Boolean databaseContainsCurrencyPair = mySqlProxy.doesDatabaseContainCurrencyPairAndDateRange(base, quote, beginDate, startDate);
-		// Contains pair
-		// Contains dates
+	public Boolean validateCurrencyPairByDateRange(@PathVariable String base, @PathVariable String quote, @PathVariable LocalDate beginDate, @PathVariable LocalDate endDate) {
+		Boolean pairIsValid = service.validateCurrencyPair(base, quote);
+		Boolean rangeIsValid = service.validateDateRange(beginDate, endDate);
 		
-		return true;
+		if(pairIsValid && rangeIsValid) {
+			return true;
+		}
+		
+		return false;
 	}
 	
 

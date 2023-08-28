@@ -43,7 +43,6 @@ public class PairController {
 		pairService.deletePair(pair);
 	}
 	
-	// add to proxy
 	@GetMapping("/contains-pair/base={base}&quote={quote}")
 	public Boolean databaseContainsBaseAndQuote(@PathVariable String base, @PathVariable String quote) {
 		return pairService.databaseContainsBaseAndQuote(base, quote);

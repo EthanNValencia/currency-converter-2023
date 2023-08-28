@@ -35,6 +35,9 @@ public interface MySqlCrudProxy {
 
 	@DeleteMapping("/delete-date")
 	public void deleteDate(@RequestBody Date date);
+	
+	@PostMapping("/create-date/date={date}")
+	public Date createDate(@PathVariable LocalDate date);
 	// End Date
 
 	// Begin Fxds
@@ -61,11 +64,17 @@ public interface MySqlCrudProxy {
 	@GetMapping("/find-pair/base={base}&quote={quote}")
 	public Pair findByBaseCurrencyAndQuoteCurrency(@PathVariable String base, @PathVariable String quote);
 
+	@GetMapping("/contains/base={base}&quote={quote}&begin={beginDate}&end={endDate}")
+	public Boolean doesDatabaseContainCurrencyPairAndDateRange(@PathVariable String base, @PathVariable String quote, @PathVariable LocalDate beginDate, @PathVariable LocalDate startDate);
+	
 	@PostMapping("/save-pair")
 	public Pair savePair(@RequestBody Pair pair);
 
 	@DeleteMapping("/delete-pair")
 	public void deletePair(@RequestBody Pair pair);
+	
+	@GetMapping("/contains-pair/base={base}&quote={quote}")
+	public Boolean databaseContainsBaseAndQuote(@PathVariable String base, @PathVariable String quote);
 	// End Pair
 
 	// Begin Rate

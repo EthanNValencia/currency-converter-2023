@@ -23,9 +23,9 @@ public class DateService {
 		return repo.findByDate(date).get();
 	}
 
-	public Boolean doesDatabaseContainDate(LocalDate date) {
-		Optional<Date> localDate = repo.findDistinctByDate(date);
-		if(localDate.isEmpty()) {
+	public Boolean doesDatabaseContainDate(LocalDate localDate) {
+		Optional<Date> dbDate = repo.findDistinctByDate(localDate);
+		if(dbDate.isEmpty()) {
 			return false;
 		}
 		return true;

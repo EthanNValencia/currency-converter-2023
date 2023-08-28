@@ -27,14 +27,17 @@ public interface MySqlCrudProxy {
 	@GetMapping("/find-date/date={date}")
 	public Date findByLocalDate(@PathVariable LocalDate date);
 
-	@GetMapping("/contains-date/date={date}")
-	public Boolean doesDatabaseContainLocalDate(@PathVariable LocalDate date);
+	@GetMapping("/contains-date/localdate={localDate}")
+	public Boolean doesDatabaseContainLocalDate(@PathVariable String localDate);
 
 	@PostMapping("/save-date")
 	public Date saveDate(@RequestBody Date date);
 
 	@DeleteMapping("/delete-date")
 	public void deleteDate(@RequestBody Date date);
+	
+	@PostMapping("/create-date/date={date}")
+	public Date createDate(@PathVariable LocalDate date);
 	// End Date
 
 	// Begin Fxds
@@ -69,6 +72,9 @@ public interface MySqlCrudProxy {
 
 	@DeleteMapping("/delete-pair")
 	public void deletePair(@RequestBody Pair pair);
+	
+	@GetMapping("/contains-pair/base={base}&quote={quote}")
+	public Boolean databaseContainsBaseAndQuote(@PathVariable String base, @PathVariable String quote);
 	// End Pair
 
 	// Begin Rate

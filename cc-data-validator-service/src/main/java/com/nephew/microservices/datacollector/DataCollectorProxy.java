@@ -4,6 +4,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.nephew.common.entities.FxdsRoot;
+
 @FeignClient(name="data-collector", url = "${DATA_COLLECTOR_URI:http://localhost}:8200")
 public interface DataCollectorProxy {
 

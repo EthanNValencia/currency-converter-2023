@@ -34,10 +34,10 @@ public class DateController {
 	public Date findByLocalDate(@PathVariable LocalDate date) {
 		return dateService.findByDate(date);
 	}
-
-	@GetMapping("/contains-date/date={date}")
-	public Boolean doesDatabaseContainLocalDate(@PathVariable LocalDate date) {
-		Boolean containsDate = dateService.doesDatabaseContainDate(date);
+	
+	@GetMapping("/contains-date/localdate={localDate}")
+	public Boolean doesDatabaseContainLocalDate(@PathVariable LocalDate localDate) {
+		Boolean containsDate = dateService.doesDatabaseContainDate(localDate);
 		return containsDate;
 	}
 
