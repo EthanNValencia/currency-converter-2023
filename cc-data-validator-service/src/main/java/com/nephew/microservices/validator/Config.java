@@ -1,4 +1,4 @@
-package com.nephew.microservices.datacollector;
+package com.nephew.microservices.validator;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

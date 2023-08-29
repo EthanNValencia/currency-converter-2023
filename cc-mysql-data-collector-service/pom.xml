@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.in28minutes.microservices</groupId>
-	<artifactId>cc-mysql-data-collector-service</artifactId>
+	<artifactId>cc-data-collector-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version> <!-- CHANGE-KUBERNETES -->
-	<name>cc-mysql-data-collector-service</name> <!-- CHANGE-KUBERNETES -->
+	<name>cc-data-collector-service</name> <!-- CHANGE-KUBERNETES -->
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -63,11 +63,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.nephew.microservices</groupId>
-			<artifactId>cc-mysql-crud-service</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.nephew.cc</groupId>

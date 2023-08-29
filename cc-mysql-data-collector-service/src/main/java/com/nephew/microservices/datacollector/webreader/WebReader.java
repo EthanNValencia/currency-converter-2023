@@ -92,7 +92,7 @@ public class WebReader {
      * @param content It requires a string of post-processed text.
      * @return It returns the HashSet of ServerCurrency objects.
      */
-    public HashSet<XRatesUsdData> createCurrencyList(String content){
+    public HashSet<XRatesUsdData> createCurrencyHashSet(String content){
         Scanner scan = new Scanner(content);
         String currencyDescription = "";
         HashSet<XRatesUsdData> currencyHashSet = new HashSet<XRatesUsdData>();
@@ -177,7 +177,7 @@ public class WebReader {
             String content = "";
             content = readText(scan);
             content = removeStringContent(content);
-            currencyList = createCurrencyList(content);
+            currencyList = createCurrencyHashSet(content);
             return currencyList;
         }
         catch(IOException ex) {
@@ -185,6 +185,39 @@ public class WebReader {
         }
         return null;
     }
+
+	public ArrayList<XRatesUsdData> getPageAsArrayList(String websiteURL) {
+		ArrayList<XRatesUsdData> currencyList;
+        try {
+            URL url = new URL(websiteURL);
+            Scanner scan = new Scanner(url.openStream());
+            String content = "";
+            content = readText(scan);
+            content = removeStringContent(content);
+            currencyList = createCurrencyArrayList(content);
+            return currencyList;
+        }
+        catch(IOException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+	}
+
+	private ArrayList<XRatesUsdData> createCurrencyArrayList(String content) {
+		Scanner scan = new Scanner(content);
+        String currencyDescription = "";
+        ArrayList<XRatesUsdData> currencyArrayList = new ArrayList<XRatesUsdData>();
+        String reader = "";
+        while (scan.hasNextLine()) {
+            reader = scan.nextLine();
+            if (!reader.matches(".*\\d.*")) {
+                currencyDescription = reader;
+                reader = scan.nextLine();
+            }
+            currencyArrayList.add(new XRatesUsdData(findCurrencyName(reader), findCurrencyRate(reader), date, currencyDescription));
+        }
+        return currencyArrayList;
+	}
 
     /***
      * This method pulls the historical currency conversion rate of many different currencies off a website and puts them all into the database.

@@ -1,4 +1,4 @@
-package com.nephew.microservices.datacollector;
+package com.nephew.microservices.validator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

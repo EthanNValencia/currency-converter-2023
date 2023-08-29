@@ -1,6 +1,7 @@
 package com.nephew.common.proxies;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.nephew.common.entities.*;
 
 /***
- * Version 0.0.1
+ * Version 0.0.4
  * 
  * @author Ethan
  */
@@ -82,4 +83,12 @@ public interface MySqlCrudProxy {
 	public List<Rate> getRatesByBaseQuoteAndRange(@PathVariable String base, @PathVariable String quote,
 			@PathVariable LocalDate startDate, @PathVariable LocalDate endDate);
 	// End Rate
+	
+	// Begin XRate
+	@PostMapping("/x-rates/save-all")
+	public void saveAllXRates(@RequestBody ArrayList<XRatesUsdData> list);
+	
+	@GetMapping("/x-rates/get-all")
+	public List<XRatesUsdData> getAllXRates();
+	// End XRate
 }

@@ -1,4 +1,4 @@
-package com.nephew.microservices.datacollector;
+package com.nephew.microservices.validator;
 
 import java.time.LocalDate;
 import java.util.List;

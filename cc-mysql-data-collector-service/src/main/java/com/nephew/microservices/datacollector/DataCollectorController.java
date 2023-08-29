@@ -1,6 +1,7 @@
 package com.nephew.microservices.datacollector;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
 
 import org.slf4j.Logger;
@@ -20,7 +21,7 @@ import com.nephew.microservices.datacollector.webreader.WebReaderService;
  * @author Ethan
  */
 @RestController
-@RequestMapping("/data-collector")
+@RequestMapping("/cc-data-collector")
 public class DataCollectorController {
 
 	private Logger logger = LoggerFactory.getLogger(DataCollectorController.class);
@@ -60,9 +61,14 @@ public class DataCollectorController {
 		return wrService.collectTodaysCurrencyDataBaseUsd();
 	}
 	
-	@GetMapping("/rates-base-usd/date/{date}")
-	public HashSet<XRatesUsdData> getTodaysCurrencyDataBaseUsd(@PathVariable LocalDate date) {
+	@GetMapping("/rates-base-usd/date={date}")
+	public HashSet<XRatesUsdData> getCurrencyDataByDate(@PathVariable LocalDate date) {
 		return wrService.collectCurrencyDataBaseUsdByLocalDate(date);
+	}
+
+	@GetMapping("/rates-base-usd/start={start}&end={end}")
+	public ArrayList<XRatesUsdData> getCurrencyDataBaseUsdByRange(@PathVariable LocalDate start, @PathVariable LocalDate end) {
+		return wrService.collectCurrencyDataBaseUsdByLocalDateRange(start, end);
 	}
 
 }

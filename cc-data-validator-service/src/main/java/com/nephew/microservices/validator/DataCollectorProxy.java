@@ -1,4 +1,4 @@
-package com.nephew.microservices.datacollector;
+package com.nephew.microservices.validator;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

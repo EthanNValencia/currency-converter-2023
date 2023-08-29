@@ -1,4 +1,4 @@
-package com.nephew.microservices.datacollector;
+package com.nephew.microservices.validator;
 
 import java.time.LocalDate;
 
@@ -19,22 +19,21 @@ public class DataValidatorController {
 	@Autowired
 	private DataValidatorService service;
 	
-	@GetMapping("/test")
-	public String testing() {
-		logger.info("Test endpoint has been reached.");
-		return "Test was successful";
-	}
-	
-	// validate currency conversion with a range. 
-	@GetMapping("contains/base={base}&quote={quote}&begin={beginDate}&end={endDate}")
-	public Boolean validateCurrencyPairByDateRange(@PathVariable String base, @PathVariable String quote, @PathVariable LocalDate beginDate, @PathVariable LocalDate endDate) {
+	@GetMapping("contains-pair/base={base}&quote={quote}")
+	public Boolean validateCurrencyPairByDateRange(@PathVariable String base, @PathVariable String quote) {
 		Boolean pairIsValid = service.validateCurrencyPair(base, quote);
-		Boolean rangeIsValid = service.validateDateRange(beginDate, endDate);
-		
-		if(pairIsValid && rangeIsValid) {
+		if(pairIsValid) {
 			return true;
 		}
-		
+		return false;
+	}
+	
+	@GetMapping("contains-dates/begin={beginDate}&end={endDate}")
+	public Boolean validateDates(@PathVariable LocalDate beginDate, @PathVariable LocalDate endDate) {
+		Boolean rangeIsValid = service.validateDateRange(beginDate, endDate);
+		if(rangeIsValid) {
+			return true;
+		}
 		return false;
 	}
 	
